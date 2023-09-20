@@ -12,8 +12,6 @@ const Auth = require("../middleware/auth.middleware");
  *  get:
  *     tags:
  *     - ToDo
- *     security:
- *     - bearerAuth: []
  *     summary: Get all ToDo list based on authentication
  *     responses:
  *      200:
@@ -23,7 +21,7 @@ const Auth = require("../middleware/auth.middleware");
  *      500:
  *        description: Server Error
  */
-router.get("/todo", Auth, TodoController.index);
+router.get("/todo", TodoController.index);
 
 /**
  * @openapi
