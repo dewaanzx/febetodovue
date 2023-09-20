@@ -4,7 +4,7 @@ const bcrypt = require("bcryptjs/dist/bcrypt");
 
 const index = async (req, res) => {
   try {
-    const userid = req.user.id;
+    const userid = 14;
     const todos = await Todo.query().where('user_id', userid);
 
     res.status(200).json({
