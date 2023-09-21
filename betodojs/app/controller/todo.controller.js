@@ -22,7 +22,7 @@ const index = async (req, res) => {
 
 const store = async (req, res) => {
   try {
-    const userid = req.user.id;
+    const userid = 14;
 
     const todo = await Todo.query().insert({
       user_id: userid,
@@ -45,26 +45,29 @@ const store = async (req, res) => {
 };
 
 const update = async (req, res) => {
-  try {
-    const todo = await Todo.query()
-      .findById(req.params.id)
-      .patch({
-        title: req.body.title,
-        checked: req.body.checked,
-      });
-
-      res.status(200).json({
-        status: 200,
-        message: "OK",
-        data: todo,
-      });
-  } catch (error) {
-    console.error(error);
-    return res.status(500).json({
-      message: "Internal Server Error!",
-    });
-  }
-};
+	try {
+	  const todo = await Todo.query()
+		.findById(req.params.id);
+  
+		const newChecked = todo.checked === 0 ? 1 : 0;
+  
+		await todo.$query().patch({
+		  title: req.body.title,
+		  checked: newChecked,
+		});
+  
+		res.status(200).json({
+		  status: 200,
+		  message: "OK",
+		  data: todo,
+		});
+	} catch (error) {
+	  console.error(error);
+	  return res.status(500).json({
+		message: "Internal Server Error!",
+      });
+    }
+  };
 
 const destroy = async (req, res) => {
   try {

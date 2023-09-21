@@ -29,8 +29,6 @@ router.get("/todo", TodoController.index);
  *  post:
  *     tags:
  *     - ToDo
- *     security:
- *     - bearerAuth: []
  *     summary: Add ToDo to the list
  *     requestBody:
  *      required: true
@@ -55,7 +53,7 @@ router.get("/todo", TodoController.index);
  *      500:
  *        description: Server Error
  */
-router.post("/todo", Auth, TodoValidator.store, TodoController.store);
+router.post("/todo", TodoValidator.store, TodoController.store);
 
 /**
  * @openapi
@@ -63,8 +61,6 @@ router.post("/todo", Auth, TodoValidator.store, TodoController.store);
  *  put:
  *     tags:
  *     - ToDo
- *     security:
- *     - bearerAuth: []
  *     summary: Check (1) or Uncheck (0) ToDo list
  *     parameters:
  *     - name: id
@@ -92,7 +88,7 @@ router.post("/todo", Auth, TodoValidator.store, TodoController.store);
  *      500:
  *        description: Server Error
  */
-router.put("/todo/:id", Auth, TodoController.update);
+router.put("/todo/:id", TodoController.update);
 
 /**
  * @openapi
@@ -100,8 +96,6 @@ router.put("/todo/:id", Auth, TodoController.update);
  *  delete:
  *     tags:
  *     - ToDo
- *     security:
- *     - bearerAuth: []
  *     summary: Delete ToDo
  *     parameters:
  *     - name: id
@@ -116,6 +110,6 @@ router.put("/todo/:id", Auth, TodoController.update);
  *      500:
  *        description: Server Error
  */
-router.delete("/todo/:id", Auth, TodoController.destroy);
+router.delete("/todo/:id", TodoController.destroy);
 
 module.exports = router;

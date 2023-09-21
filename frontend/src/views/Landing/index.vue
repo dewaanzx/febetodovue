@@ -1,18 +1,8 @@
 <script>
-import NavbarComponent from "../../components/Navbar.vue";
-import FooterComponent from "../../components/Navbar.vue";
-export default {
-  name: "landing-page",
-  components: {
-	NavbarComponent,
-	FooterComponent
-  }
-}
 </script>
 
 <template>
 	<div>
-	  <navbar-component></navbar-component>
 	  <main>
 		<div
 		  class="relative pt-16 pb-32 flex content-center items-center justify-center"
@@ -567,7 +557,6 @@ export default {
 		  </div>
 		</section>
 	  </main>
-	  <footer-component></footer-component>
 	</div>
   </template>
 

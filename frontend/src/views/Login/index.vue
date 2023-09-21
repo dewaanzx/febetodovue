@@ -1,6 +1,5 @@
 export <template>
 	<div>
-	  <navbar-component></navbar-component>
 	  <main>
 		<section class="absolute w-full h-full">
 		  <div
@@ -114,7 +113,6 @@ export <template>
 			  </div>
 			</div>
 		  </div>
-		  <footer-component></footer-component>
 		</section>
 	  </main>
 	</div>
