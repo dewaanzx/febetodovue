@@ -1,5 +1,10 @@
 <template>
 	<div v-for="todo in todos.data" :key="todo.id">
+		<table>
+			<th>
+				Jumlah
+			</th>
+		</table>
 		<p>{{ todo.title }}</p>
 		<p>{{ todo.checked }}</p>
 	</div>
